@@ -11,9 +11,27 @@
             /*grouping for "Select editor" dialog*/
             group: "Rich Content",
             /*the HTML file we will load for the editor*/
-            editor: {
+            editor: 
+			{
                 view: "~/App_Plugins/MarkDownEditor/markdowneditor.html"
-            }
+            },
+			prevalues: {
+            fields: [
+        {
+            label: "Preview",
+            description: "Display a live preview",
+            key: "preview",
+            view: "boolean"
+        },
+        {
+            label: "Default value",
+            description: "If value is blank, the editor will show this",
+            key: "defaultValue",
+            view: "textarea"
+        }
+    ]
+}
+
         }
     ]
     ,
