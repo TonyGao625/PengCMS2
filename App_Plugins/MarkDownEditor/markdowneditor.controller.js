@@ -1,8 +1,10 @@
 ﻿angular.module("umbraco")
 .controller("My.MarkdownEditorController",
 //inject umbracos assetsService
-function ($scope, assetsService) {
-
+function ($scope, assetsService, dialogService, personResource) {
+    if ($scope.model.value === null || $scope.model.value === "") {
+        $scope.model.value = $scope.model.config.defaultValue;
+    }
     //tell the assetsService to load the markdown.editor libs from the markdown editors
     //plugin folder
     assetsService
@@ -16,6 +18,13 @@ function ($scope, assetsService) {
             var converter2 = new Markdown.Converter();
             var editor2 = new Markdown.Editor(converter2, "-" + $scope.model.alias);
             editor2.run();
+
+            editor2.hooks.set("insertImageDialog", function (callback) {
+                //here we can intercept our own dialog handling
+
+                return true; // tell the editor that we'll take care of getting the image url
+            });
+
         });
 
     //load the separate css for the editor to avoid it blocking our js loading
