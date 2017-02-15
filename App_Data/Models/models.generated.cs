@@ -19,7 +19,7 @@ using Umbraco.ModelsBuilder;
 using Umbraco.ModelsBuilder.Umbraco;
 
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "6ac13f76fa22ce79")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "37d90e9d4f93a64f")]
 [assembly:System.Reflection.AssemblyVersion("0.0.0.4")]
 
 namespace Umbraco.Web.PublishedContentModels
@@ -171,6 +171,94 @@ namespace Umbraco.Web.PublishedContentModels
 		public string ArticleTitle
 		{
 			get { return this.GetPropertyValue<string>("articleTitle"); }
+		}
+	}
+
+	/// <summary>ContactPage</summary>
+	[PublishedContentModel("contactPage")]
+	public partial class ContactPage : PublishedContentModel
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "contactPage";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public ContactPage(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<ContactPage, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+	}
+
+	/// <summary>ContactFormula</summary>
+	[PublishedContentModel("contactFormula")]
+	public partial class ContactFormula : PublishedContentModel
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "contactFormula";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public ContactFormula(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<ContactFormula, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// contactmessage
+		///</summary>
+		[ImplementPropertyType("contactmessage")]
+		public string Contactmessage
+		{
+			get { return this.GetPropertyValue<string>("contactmessage"); }
+		}
+
+		///<summary>
+		/// contactName
+		///</summary>
+		[ImplementPropertyType("contactName")]
+		public string ContactName
+		{
+			get { return this.GetPropertyValue<string>("contactName"); }
+		}
+
+		///<summary>
+		/// Dropdown Gender
+		///</summary>
+		[ImplementPropertyType("dropdownGender")]
+		public object DropdownGender
+		{
+			get { return this.GetPropertyValue("dropdownGender"); }
+		}
+
+		///<summary>
+		/// email
+		///</summary>
+		[ImplementPropertyType("email")]
+		public string Email
+		{
+			get { return this.GetPropertyValue<string>("email"); }
 		}
 	}
 

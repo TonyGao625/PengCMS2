@@ -1,0 +1,11 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<My.Controllers.ContactModel>
+    @using (Html.BeginUmbracoForm<My.Controllers.ContactSurfaceController>("HandleFormPost"))
+    {
+       
+            <label for="emailform">email</label>@Html.TextBoxFor(x => x.Email,new {@class="emailForm",placeholder="Email"})<br />
+            <label for="nameform">name</label>@Html.TextBoxFor(x => x.Name)<br />
+        <label for="messageform">message</label>@Html.TextAreaFor(x => x.Message)<br/>
+       
+            <button class="btn btn-lg btn-danger">Submit</button>
+       
+    }
