@@ -8,8 +8,8 @@ using  Umbraco.Web;
 using  Umbraco.ModelsBuilder;
 using  Umbraco.ModelsBuilder.Umbraco;
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "1d503e96643573d3")]
-[assembly:System.Reflection.AssemblyVersion("0.0.0.1")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "6ac13f76fa22ce79")]
+[assembly:System.Reflection.AssemblyVersion("0.0.0.4")]
 
 
 // FILE: models.generated.cs
@@ -66,15 +66,6 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// Another Body Text
-		///</summary>
-		[ImplementPropertyType("anotherBodyText")]
-		public Newtonsoft.Json.Linq.JToken AnotherBodyText
-		{
-			get { return this.GetPropertyValue<Newtonsoft.Json.Linq.JToken>("anotherBodyText"); }
-		}
-
-		///<summary>
 		/// Body Text: The main content of the page.
 		///</summary>
 		[ImplementPropertyType("bodyText")]
@@ -90,6 +81,15 @@ namespace Umbraco.Web.PublishedContentModels
 		public string FooterText
 		{
 			get { return this.GetPropertyValue<string>("footerText"); }
+		}
+
+		///<summary>
+		/// MyPerson
+		///</summary>
+		[ImplementPropertyType("myPerson")]
+		public object MyPerson
+		{
+			get { return this.GetPropertyValue("myPerson"); }
 		}
 
 		///<summary>

@@ -1,0 +1,23 @@
+﻿{
+  //you can define multiple editors
+  "propertyEditors": [
+    {
+      /*this must be a unique alias*/
+      "alias": "My.PersonList",
+      /*the name*/
+      "name": "My Person List",
+      /*the icon*/
+      "icon": "icon-code",
+      /*grouping for "Select editor" dialog*/
+      "group": "Rich Content",
+      /*the HTML file we will load for the editor*/
+      "editor": {
+        "view": "~/App_Plugins/PersonList/personlist.html"
+      }
+    }
+  ],
+  "javascript": [
+    "~/App_Plugins/PersonList/personlist.controller.js",
+    "~/App_Plugins/PersonList/person.resource.js"
+  ]
+}
